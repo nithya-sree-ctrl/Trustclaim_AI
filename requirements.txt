@@ -1,0 +1,10 @@
+flask
+google-generativeai
+python-dotenv
+pandas
+numpy
+opencv-python
+pillow
+plotly
+requests
+werkzeug

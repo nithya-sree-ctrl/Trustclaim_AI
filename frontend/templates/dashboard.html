@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>TrustClaim AI Dashboard</title>
+
+<style>
+
+body{
+font-family:Arial;
+padding:30px;
+}
+
+.card{
+border:1px solid #ddd;
+padding:20px;
+margin:10px;
+border-radius:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>TrustClaim AI Dashboard</h1>
+
+<div class="card">
+<h2>Total Claims</h2>
+<h3>{{ metrics.total_claims }}</h3>
+</div>
+
+<div class="card">
+<h2>Supported Claims</h2>
+<h3>{{ metrics.supported }}</h3>
+</div>
+
+<div class="card">
+<h2>Contradicted Claims</h2>
+<h3>{{ metrics.contradicted }}</h3>
+</div>
+
+<div class="card">
+<h2>Insufficient Evidence</h2>
+<h3>{{ metrics.insufficient }}</h3>
+</div>
+
+</body>
+
+</html>

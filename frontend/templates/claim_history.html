@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Claim History</title>
+</head>
+
+<body>
+
+<h1>User Claim History</h1>
+
+<table border="1">
+
+<tr>
+<th>User ID</th>
+<th>Previous Claims</th>
+<th>Risk Level</th>
+</tr>
+
+{% for item in history %}
+
+<tr>
+
+<td>{{ item.user_id }}</td>
+
+<td>{{ item.previous_claims }}</td>
+
+<td>{{ item.risk }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>

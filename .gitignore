@@ -1,0 +1,44 @@
+# Environment variables
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# VS Code
+.vscode/
+
+# Uploaded images
+frontend/uploads/
+
+# Generated outputs
+output/output.csv
+output/*.csv
+
+# Heatmaps
+frontend/static/heatmaps/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Build files
+build/
+dist/
+
+# Temporary files
+*.tmp
+*.temp

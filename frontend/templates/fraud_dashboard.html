@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Fraud Dashboard</title>
+</head>
+
+<body>
+
+<h1>Fraud Risk Dashboard</h1>
+
+<h2>Fraud Score</h2>
+
+<h3>{{ fraud_score }}</h3>
+
+<h2>Risk Flags</h2>
+
+<ul>
+{% for flag in risk_flags %}
+<li>{{ flag }}</li>
+{% endfor %}
+</ul>
+
+</body>
+</html>
