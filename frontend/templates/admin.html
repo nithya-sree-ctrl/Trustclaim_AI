@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TrustClaim AI Admin Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🛡️ TrustClaim AI Admin Dashboard</h1>
+
+        <div class="dashboard">
+
+            <div class="card">
+                <h2>Total Claims</h2>
+                <p>{{ total_claims }}</p>
+            </div>
+
+            <div class="card">
+                <h2>Supported Claims</h2>
+                <p>{{ supported_claims }}</p>
+            </div>
+
+            <div class="card">
+                <h2>Fraud Alerts</h2>
+                <p>{{ fraud_alerts }}</p>
+            </div>
+
+            <div class="card">
+                <h2>Pending Reviews</h2>
+                <p>{{ pending_reviews }}</p>
+            </div>
+
+        </div>
+
+        <h2>Recent Claims</h2>
+
+        <table>
+
+            <tr>
+                <th>Claim ID</th>
+                <th>User</th>
+                <th>Status</th>
+                <th>Severity</th>
+            </tr>
+
+            {% for claim in claims %}
+
+            <tr>
+                <td>{{ claim.id }}</td>
+                <td>{{ claim.user }}</td>
+                <td>{{ claim.status }}</td>
+                <td>{{ claim.severity }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</body>
+
+</html>

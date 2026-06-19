@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128">
+  <circle cx="64" cy="64" r="50" fill="#2563eb"/>
+  <path d="M64 20 L100 40 V65 C100 90 82 108 64 118 C46 108 28 90 28 65 V40 Z"
+        fill="white"/>
+  <text x="64" y="72" text-anchor="middle" font-size="24" font-weight="bold">
+    T
+  </text>
+</svg>

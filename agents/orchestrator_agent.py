@@ -1,5 +1,8 @@
 from agents.claim_agent import analyze_claim
 from agents.image_agent import analyze_images
+from evidence.evidence_checker import check_evidence
+from evidence.evidence_validator import validate_images
+
 
 from agents.evidence_agent import (
     evaluate_evidence
@@ -15,6 +18,17 @@ from agents.severity_agent import (
 
 from agents.adjuster_agent import (
     generate_recommendation
+)
+from fraud_detection.risk_flag_generator import (
+    generate_risk_flags
+)
+
+from decision_engine.confidence_generator import (
+    generate_confidence
+)
+
+from decision_engine.decision_reasoner import (
+    generate_reasoning
 )
 
 
