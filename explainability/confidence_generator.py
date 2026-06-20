@@ -1,19 +1,12 @@
-def generate_confidence(
-    evidence_met,
-    fraud_score,
-    image_confidence
-):
+def generate_confidence(fraud_result):
 
-    score = image_confidence
-
-    if evidence_met:
-        score += 20
-
-    score -= fraud_score * 0.20
-
-    score = max(
-        0,
-        min(score, 100)
+    score = fraud_result.get(
+        "fraud_score",
+        0
     )
 
-    return round(score, 2)
+
+    confidence = 100 - score
+
+
+    return str(confidence) + "%"

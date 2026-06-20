@@ -1,7 +1,8 @@
-import os
 from dotenv import load_dotenv
+import os
 
 load_dotenv()
 
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-UPLOAD_FOLDER = "frontend/uploads"
+GEMINI_API_KEY = os.getenv(
+    "GEMINI_API_KEY"
+)

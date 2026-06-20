@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>TrustClaim AI</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background:#f4f6f8;
+    text-align:center;
+}
+
+.container{
+    margin:50px auto;
+    width:500px;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 15px gray;
+}
+
+textarea{
+    width:90%;
+    height:100px;
+}
+
+button{
+    margin-top:20px;
+    padding:12px 30px;
+    background:#007bff;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+<h1>TrustClaim AI</h1>
+
+<form action="/analyze" method="POST" enctype="multipart/form-data">
+
+
+<h3>Enter Claim</h3>
+
+<textarea name="claim" placeholder="Enter insurance claim"></textarea>
+
+
+<h3>Upload Evidence Images</h3>
+
+<input 
+type="file" 
+name="images"
+multiple>
+
+
+<br>
+
+<button type="submit">
+Analyze Claim
+</button>
+
+
+</form>
+
+
+</div>
+
+</body>
+
+</html>

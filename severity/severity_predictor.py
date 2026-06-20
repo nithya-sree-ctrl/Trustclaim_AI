@@ -1,33 +1,53 @@
-def predict_severity(
-    issue_type
-):
+def predict_severity(image_analysis):
 
-    issue_type = issue_type.lower()
+    analysis_text = str(image_analysis).lower()
 
-    high = [
-        "broken",
-        "shattered",
-        "major_crack"
-    ]
 
-    medium = [
-        "dent",
-        "crack",
-        "water_damage"
-    ]
-
-    low = [
-        "scratch",
-        "minor_mark"
-    ]
-
-    if issue_type in high:
+    if any(
+        word in analysis_text
+        for word in [
+            "total damage",
+            "shattered",
+            "broken",
+            "major crack",
+            "severe"
+        ]
+    ):
         return "high"
 
-    if issue_type in medium:
+
+    if any(
+        word in analysis_text
+        for word in [
+            "dent",
+            "medium",
+            "crack",
+            "damaged"
+        ]
+    ):
         return "medium"
 
-    if issue_type in low:
+
+    if any(
+        word in analysis_text
+        for word in [
+            "scratch",
+            "minor",
+            "small mark"
+        ]
+    ):
         return "low"
 
+
     return "unknown"
+
+
+
+# Used by analyzer.py
+def estimate_severity(image_analysis):
+
+    severity = predict_severity(
+        image_analysis
+    )
+
+    return severity

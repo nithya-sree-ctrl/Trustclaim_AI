@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+TrustClaim AI Report
+</title>
+
+
+<style>
+
+
+body{
+
+font-family: Arial;
+background:#f2f5f9;
+padding:30px;
+
+}
+
+
+
+.container{
+
+max-width:900px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:15px;
+
+}
+
+
+
+h1{
+
+text-align:center;
+color:#1d4ed8;
+
+}
+
+
+
+.card{
+
+background:#f8fafc;
+padding:20px;
+margin:20px 0;
+border-radius:12px;
+
+}
+
+
+
+.title{
+
+font-size:20px;
+font-weight:bold;
+color:#333;
+
+}
+
+
+
+img{
+
+width:250px;
+border-radius:10px;
+margin:10px;
+
+}
+
+
+
+.badge{
+
+padding:8px;
+background:#dcfce7;
+border-radius:8px;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>
+🚗 TrustClaim AI Analysis Report
+</h1>
+
+
+
+
+
+<div class="card">
+
+
+<div class="title">
+📝 Claim Details
+</div>
+
+
+<p>
+
+{{ result.claim }}
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<div class="title">
+
+📷 Evidence Analysis
+
+</div>
+
+
+<p>
+
+{{ result.image.status }}
+
+</p>
+
+
+
+
+{% if result.image.details %}
+
+
+
+{% for item in result.image.details %}
+
+
+<div class="card">
+
+
+<b>
+Image:
+</b>
+
+{{ item.image }}
+
+
+<br><br>
+
+
+<b>
+Damage Percentage:
+</b>
+
+{{ item.damage_ratio }} %
+
+
+<br><br>
+
+
+<b>
+AI Detection:
+</b>
+
+{{ item.result }}
+
+
+
+</div>
+
+
+{% endfor %}
+
+
+
+{% endif %}
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<div class="title">
+
+⚠️ Damage Severity
+
+</div>
+
+
+<p>
+
+Severity:
+
+<b>
+
+{{ result.severity.severity }}
+
+</b>
+
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<div class="title">
+
+🚨 Fraud Analysis
+
+</div>
+
+
+
+<p>
+
+Fraud Score:
+
+<b>
+{{ result.fraud.fraud_score }}
+</b>
+
+
+</p>
+
+
+<p>
+
+Risk Level:
+
+<b>
+{{ result.fraud.risk_level }}
+
+</b>
+
+
+</p>
+
+
+
+<p>
+
+Flags:
+
+{{ result.fraud.flags }}
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<div class="title">
+
+🤖 AI Explanation
+
+</div>
+
+
+
+<p>
+
+Confidence:
+
+<b>
+{{ result.explanation.confidence }}
+
+</b>
+
+</p>
+
+
+
+<p>
+
+Reason:
+
+{{ result.explanation.reason }}
+
+</p>
+
+
+
+<p>
+
+{{ result.explanation.summary }}
+
+</p>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="badge">
+
+✅ {{ result.status }}
+
+</div>
+
+
+
+</div>
+
+
+</body>
+
+
+</html>

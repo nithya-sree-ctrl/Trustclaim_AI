@@ -1,14 +1,14 @@
 from flask import Flask
-import os
+
 
 app = Flask(
     __name__,
-    template_folder="../frontend/templates",
-    static_folder="../frontend/static"
+    template_folder="../templates",
+    static_folder="../templates/static"
 )
 
-app.config["UPLOAD_FOLDER"] = "frontend/uploads"
 
-os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
+app.config["UPLOAD_FOLDER"] = "templates/uploads"
 
-from backend.routes import *
+
+from backend import routes
