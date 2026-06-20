@@ -1,93 +1,70 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
 
-<title>
-TrustClaim AI Report
-</title>
-
+<title>TrustClaim AI Results</title>
 
 <style>
 
-
 body{
-
-font-family: Arial;
-background:#f2f5f9;
-padding:30px;
-
+    font-family: Arial, sans-serif;
+    background:#f4f6f8;
+    padding:30px;
 }
-
 
 
 .container{
 
-max-width:900px;
-margin:auto;
-background:white;
-padding:30px;
-border-radius:15px;
+    width:80%;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0px 0px 10px #ccc;
 
 }
-
 
 
 h1{
 
-text-align:center;
-color:#1d4ed8;
+    text-align:center;
+    color:#1f4e79;
 
 }
 
 
+.section{
 
-.card{
-
-background:#f8fafc;
-padding:20px;
-margin:20px 0;
-border-radius:12px;
+    margin-top:20px;
+    padding:20px;
+    background:#f9f9f9;
+    border-radius:10px;
 
 }
-
 
 
 .title{
 
-font-size:20px;
-font-weight:bold;
-color:#333;
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:10px;
 
 }
-
 
 
 img{
 
-width:250px;
-border-radius:10px;
-margin:10px;
-
-}
-
-
-
-.badge{
-
-padding:8px;
-background:#dcfce7;
-border-radius:8px;
+    width:300px;
+    margin:10px;
+    border-radius:10px;
 
 }
 
 
 </style>
 
-
 </head>
-
 
 
 <body>
@@ -96,28 +73,19 @@ border-radius:8px;
 <div class="container">
 
 
-<h1>
-🚗 TrustClaim AI Analysis Report
-</h1>
+<h1>🚗 TrustClaim AI Analysis Report</h1>
 
 
 
-
-
-<div class="card">
-
+<div class="section">
 
 <div class="title">
 📝 Claim Details
 </div>
 
-
 <p>
-
 {{ result.claim }}
-
 </p>
-
 
 </div>
 
@@ -125,76 +93,32 @@ border-radius:8px;
 
 
 
-
-
-<div class="card">
-
+<div class="section">
 
 <div class="title">
-
-📷 Evidence Analysis
-
+📷 Uploaded Evidence
 </div>
 
 
-<p>
-
-{{ result.image.status }}
-
-</p>
+{% if result.image.uploaded_images %}
 
 
+{% for img in result.image.uploaded_images %}
 
 
-{% if result.image.details %}
-
-
-
-{% for item in result.image.details %}
-
-
-<div class="card">
-
-
-<b>
-Image:
-</b>
-
-{{ item.image }}
-
-
-<br><br>
-
-
-<b>
-Damage Percentage:
-</b>
-
-{{ item.damage_ratio }} %
-
-
-<br><br>
-
-
-<b>
-AI Detection:
-</b>
-
-{{ item.result }}
-
-
-
-</div>
+<img src="/{{ img }}">
 
 
 {% endfor %}
 
 
+{% else %}
+
+<p>No image uploaded</p>
 
 {% endif %}
 
 
-
 </div>
 
 
@@ -202,30 +126,22 @@ AI Detection:
 
 
 
-
-
-
-<div class="card">
-
+<div class="section">
 
 <div class="title">
-
 ⚠️ Damage Severity
-
 </div>
 
 
 <p>
-
 Severity:
-
-<b>
-
 {{ result.severity.severity }}
+</p>
 
-</b>
 
-
+<p>
+Status:
+{{ result.severity.status }}
 </p>
 
 
@@ -237,51 +153,31 @@ Severity:
 
 
 
-
-
-<div class="card">
+<div class="section">
 
 
 <div class="title">
 
-🚨 Fraud Analysis
+🛡️ Fraud Analysis
 
 </div>
 
 
-
 <p>
-
 Fraud Score:
-
-<b>
 {{ result.fraud.fraud_score }}
-</b>
-
-
 </p>
 
 
 <p>
-
 Risk Level:
-
-<b>
 {{ result.fraud.risk_level }}
-
-</b>
-
-
 </p>
 
 
-
 <p>
-
-Flags:
-
+Risk Indicators:
 {{ result.fraud.flags }}
-
 </p>
 
 
@@ -293,9 +189,7 @@ Flags:
 
 
 
-
-
-<div class="card">
+<div class="section">
 
 
 <div class="title">
@@ -305,36 +199,22 @@ Flags:
 </div>
 
 
-
 <p>
-
 Confidence:
-
-<b>
 {{ result.explanation.confidence }}
-
-</b>
-
 </p>
 
 
-
 <p>
-
 Reason:
-
 {{ result.explanation.reason }}
-
 </p>
-
 
 
 <p>
-
+Summary:
 {{ result.explanation.summary }}
-
 </p>
-
 
 
 </div>
@@ -345,9 +225,20 @@ Reason:
 
 
 
-<div class="badge">
+<div class="section">
 
-✅ {{ result.status }}
+
+<div class="title">
+
+✅ Final Status
+
+</div>
+
+
+<p>
+{{ result.status }}
+</p>
+
 
 </div>
 
@@ -357,6 +248,5 @@ Reason:
 
 
 </body>
-
 
 </html>

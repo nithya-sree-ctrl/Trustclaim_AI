@@ -46,9 +46,15 @@ def analyze():
         filename = file.filename
 
         save_path = os.path.join(
-            app.config["UPLOAD_FOLDER"],
-            filename
-        )
+    app.config["UPLOAD_FOLDER"],
+    filename
+)
+
+        file.save(save_path)
+
+        image_paths.append(
+    "uploads/" + filename
+)
 
         file.save(save_path)
 
